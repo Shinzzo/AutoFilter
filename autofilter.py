@@ -1,8 +1,7 @@
 """@Author: Shinzzo"""
    
 #   Useful Modules
-import os
-import collections
+import os,collections
 
 #   Some Useful File Extensions.
 audio = ('mp3', 'wav', 'midi')
@@ -14,10 +13,11 @@ executables = ('dmg', 'exe', 'iso')
 
 def main():
     BASE_PATH = os.path.expanduser('~')
-    DEST_DIRS = ['Music', 'Movies', 'Pictures', 'Documents', 'Applications', 'Other']
+    DEST_DIRS = ('Music', 'Movies', 'Pictures', 'Documents', 'Applications', 'Other')
 
     for d in DEST_DIRS:
         dir_path = os.path.join(BASE_PATH, d)
         if not os.path.isdir(dir_path):
             os.mkdir(dir_path)
-
+if __name__=="__main__":
+    main()
