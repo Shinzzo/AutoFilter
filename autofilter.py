@@ -22,9 +22,9 @@ def main():
         if not os.path.isdir(dir_path):
             os.mkdir(dir_path)
     #--------------------------------------------------------#
-    DOWNLOADS_PATH = os.path.join(cwd, 'Downloads')
+    downloads_path = os.path.join(cwd, 'Downloads')
     files_mapping = collections.defaultdict(list)
-    files_list = os.listdir(DOWNLOADS_PATH)
+    files_list = os.listdir(downloads_path)
     for file_name in files_list:
         if file_name[0] != '.':
             file_ext = file_name.split('.')[-1]
@@ -33,22 +33,22 @@ def main():
     for f_ext, f_list in files_mapping.items():
         if f_ext in executables:
             for file in f_list:
-                os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(cwd, 'Applications', file))
+                os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Applications', file))
         elif f_ext in audio:
             for file in f_list:
-                os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(cwd, 'Music', file))
+                os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Music', file))
         elif f_ext in video:
             for file in f_list:
-                os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(cwd, 'Movies', file))
+                os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Movies', file))
         elif f_ext in images:
             for file in f_list:
-                os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(cwd, 'Pictures', file))
+                os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Pictures', file))
         elif f_ext in documents or f_ext in compressed:
             for file in f_list:
-                os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(cwd, 'Documents', file))
+                os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Documents', file))
         else:
             for file in f_list:
-                os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(cwd, 'Other', file))
+                os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Other', file))
 
 #   Starts the script.            
 if __name__=="__main__":
