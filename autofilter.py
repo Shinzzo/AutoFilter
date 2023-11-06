@@ -1,6 +1,6 @@
 """@Author: Shinzzo"""
    
-#   Useful Modules
+#   Useful Modules.
 import os,collections
 
 #   Some Useful File Extensions.
@@ -11,6 +11,7 @@ documents  = ('txt', 'pdf', 'doc', 'docx', 'html', 'ppt', 'pptx', 'log')
 compressed = ('zip', '7z', 'rar', 'tar', 'gz', 'rpm', 'pkg', 'deb')
 executables = ('dmg', 'exe', 'iso')
 
+#   Main Function that creates directories and calls other functions.
 def main():
     BASE_PATH = os.path.expanduser('~')
     DEST_DIRS = ('Music', 'Movies', 'Pictures', 'Documents', 'Applications', 'Other')
