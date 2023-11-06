@@ -12,3 +12,12 @@ documents  = ('txt', 'pdf', 'doc', 'docx', 'html', 'ppt', 'pptx', 'log')
 compressed = ('zip', '7z', 'rar', 'tar', 'gz', 'rpm', 'pkg', 'deb')
 executables = ('dmg', 'exe', 'iso')
 
+def main():
+    BASE_PATH = os.path.expanduser('~')
+    DEST_DIRS = ['Music', 'Movies', 'Pictures', 'Documents', 'Applications', 'Other']
+
+    for d in DEST_DIRS:
+        dir_path = os.path.join(BASE_PATH, d)
+        if not os.path.isdir(dir_path):
+            os.mkdir(dir_path)
+
