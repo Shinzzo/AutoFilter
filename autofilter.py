@@ -1,11 +1,7 @@
-#
 #   @Author: Shinzzo
-#
-
-#   Useful Modules.
 import os,collections
 
-#   Some Useful File Extensions.
+#   Common file extensions.
 audio = ('mp3', 'wav', 'midi')
 video = ('mp4', 'mpg', 'mpeg', 'avi', 'mov', 'flv', 'mkv', 'm4v', 'h264')
 images  = ('png', 'jpg', 'jpeg', 'gif', 'svg', 'bmp', 'svg',)
@@ -13,7 +9,7 @@ documents  = ('txt', 'pdf', 'doc', 'docx', 'html', 'ppt', 'pptx', 'log')
 compressed = ('zip', '7z', 'rar', 'tar', 'gz', 'rpm', 'pkg', 'deb')
 executables = ('dmg', 'exe', 'iso')
     
-#   Main Function that creates directories & maps files from downloads folder based on their file extensions.
+#   Main function that creates directories & maps files from downloads folder based on their file extensions.
 def main():
     cwd = os.path.expanduser('~')
     destindirs = ('Music', 'Movies', 'Pictures', 'Documents', 'Applications', 'Other')
@@ -50,6 +46,5 @@ def main():
             for file in f_list:
                 os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Other', file))
 
-#   Starts the script.            
 if __name__=="__main__":
     main()
