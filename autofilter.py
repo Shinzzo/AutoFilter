@@ -14,6 +14,7 @@ executables = ('dmg', 'exe', 'iso')
 #   Main function that creates directories & maps files from downloads folder based on their file extensions.
 def main():
     cwd = os.path.expanduser('~')
+    # note, if you use linux you probably want to change the string "Movies" to "Videos" in the lines: 18, 41
     destindirs = ('Music', 'Movies', 'Pictures', 'Documents', 'Applications', 'Other')
     for d in destindirs:
         dir_path = os.path.join(cwd, d)
