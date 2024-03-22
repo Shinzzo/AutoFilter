@@ -1,14 +1,16 @@
 #   @Author: Shinzzo
-import os,collections
+import collections
+import os
 
 #   Common file extensions.
 audio = ('mp3', 'wav', 'midi')
 video = ('mp4', 'mpg', 'mpeg', 'avi', 'mov', 'flv', 'mkv', 'm4v', 'h264')
-images  = ('png', 'jpg', 'jpeg', 'gif', 'svg', 'bmp', 'svg',)
-documents  = ('txt', 'pdf', 'doc', 'docx', 'html', 'ppt', 'pptx', 'log')
+images = ('png', 'jpg', 'jpeg', 'gif', 'svg', 'bmp', 'svg',)
+documents = ('txt', 'pdf', 'doc', 'docx', 'html', 'ppt', 'pptx', 'log')
 compressed = ('zip', '7z', 'rar', 'tar', 'gz', 'rpm', 'pkg', 'deb')
 executables = ('dmg', 'exe', 'iso')
-    
+
+
 #   Main function that creates directories & maps files from downloads folder based on their file extensions.
 def main():
     cwd = os.path.expanduser('~')
@@ -17,7 +19,7 @@ def main():
         dir_path = os.path.join(cwd, d)
         if not os.path.isdir(dir_path):
             os.mkdir(dir_path)
-    #--------------------------------------------------------#
+    # --------------------------------------------------------#
     downloads_path = os.path.join(cwd, 'Downloads')
     files_mapping = collections.defaultdict(list)
     files_list = os.listdir(downloads_path)
@@ -25,7 +27,7 @@ def main():
         if file_name[0] != '.':
             file_ext = file_name.split('.')[-1]
             files_mapping[file_ext].append(file_name)
-    #--------------------------------------------------------#
+    # --------------------------------------------------------#
     for f_ext, f_list in files_mapping.items():
         if f_ext in executables:
             for file in f_list:
@@ -46,5 +48,6 @@ def main():
             for file in f_list:
                 os.rename(os.path.join(downloads_path, file), os.path.join(cwd, 'Other', file))
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()
